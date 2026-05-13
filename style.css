@@ -123,3 +123,16 @@ h1 {
   color: #cccccc;
   font-size: 12px;
 }
+
+a{
+  text-decoration: none;
+}
+
+.txtesq{
+  text-align: left;
+  color: #123759;
+}
+
+.cor{
+  color: #123759;
+}
