@@ -30,13 +30,17 @@
       <p>Faça login para avaliar os projetos</p>
 
       <h5 class="txtesq">Digite seu nome</h5>
+
       <input
         class="input"
         type="text"
         placeholder="Digite seu nome"
       >
-        <br><br>
+
+      <br><br>
+
       <h5 class="txtesq">Digite seu email</h5>
+      
       <input
         class="input"
         type="email"
@@ -52,79 +56,5 @@
 
   </div>
 
-  <!-- FIREBASE -->
-  <script type="module">
-
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-
-    import {
-      getAuth,
-      GoogleAuthProvider,
-      signInWithPopup
-    } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
-
-    // CONFIG FIREBASE
-    const firebaseConfig = {
-      apiKey: "AIzaSyAIaLqJrLFDPPf2fjmlbMVDWR5aG8X3U9M",
-      authDomain: "uniavalia-pi.firebaseapp.com",
-      projectId: "uniavalia-pi",
-      storageBucket: "uniavalia-pi.firebasestorage.app",
-      messagingSenderId: "854909400217",
-      appId: "1:854909400217:web:eac173179972148fdab408",
-      measurementId: "G-1WT4LRH3NC"
-    };
-
-    // INICIALIZA FIREBASE
-    const app = initializeApp(firebaseConfig);
-
-    // AUTENTICAÇÃO
-    const auth = getAuth(app);
-
-    // LOGIN GOOGLE
-    const provider = new GoogleAuthProvider();
-
-    // FUNÇÃO LOGIN GOOGLE
-    window.loginGoogle = async function () {
-
-      try {
-
-        const result = await signInWithPopup(auth, provider);
-
-        const user = result.user;
-
-        console.log(user);
-
-        alert("Login realizado com sucesso! 🎉");
-
-      } catch (error) {
-
-        console.error(error);
-
-        alert("Erro no login ❌");
-
-      }
-
-    }
-
-    // LOGIN MANUAL
-    window.loginManual = function () {
-
-      const email = document.getElementById("email").value;
-
-      if (email.trim() !== "") {
-
-        alert("Login manual realizado! 🎉");
-
-      } else {
-
-        alert("Digite um email ❌");
-
-      }
-
-    }
-
-  </script>
-
 </body>
-
 </html>

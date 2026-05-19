@@ -5,26 +5,6 @@
 
 
 // ============================================================
-// AO CARREGAR A PÁGINA
-// Verifica se o usuário está logado.
-// Se não estiver, redireciona para o login.
-// ============================================================
-window.addEventListener("load", function () {
-  const emailLogado = sessionStorage.getItem("emailLogado");
-
-  if (!emailLogado) {
-    // Usuário não logado — volta para o login
-    alert("Sessão expirada. Faça login novamente.");
-    window.location.href = "index.html";
-    return;
-  }
-
-  // Exibe o nome/email do usuário logado no header
-  document.getElementById("nomeUsuario").textContent = emailLogado;
-});
-
-
-// ============================================================
 // FUNÇÃO: LOGOUT
 // Remove a sessão e redireciona para o login
 // ============================================================
