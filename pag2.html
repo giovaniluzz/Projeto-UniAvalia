@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniAvalia - Home</title>
+
+  <!-- Link para o arquivo de estilos da home -->
+  <link rel="stylesheet" href="pag2.css">
+</head>
+<body>
+
+  <!-- ==============================
+       CABEÇALHO (Header)
+       Mostra saudação, nome do
+       professor e botão de sair
+  ============================== -->
+  <header class="header">
+    <div class="header-info">
+      <h1 class="header-title">Olá, Professor(a)! 👋</h1>
+      <p class="header-subtitle">👤 <span id="nomeUsuario">Prof. João Silva</span></p>
+    </div>
+    <!-- Botão de logout (sair) -->
+    <button class="btn-logout" onclick="logout()" title="Sair">↪</button>
+  </header>
+
+  <!-- ==============================
+       CONTEÚDO PRINCIPAL
+  ============================== -->
+  <main class="main">
+
+    <!-- CARD 1: Avaliar Projetos -->
+    <div class="card">
+      <div class="card-header">
+        <!-- Ícone do card -->
+        <div class="card-icon icon-dark">📋</div>
+        <div class="card-text">
+          <h2 class="card-title">Avaliar Projetos</h2>
+          <p class="card-subtitle">Vote nos projetos (0 a 10)</p>
+        </div>
+      </div>
+      <!-- Botão principal (preenchido) -->
+      <button class="btn btn-primary" onclick="irParaVotacao()">
+        Ir para Votação
+      </button>
+    </div>
+
+    <!-- CARD 2: Ver Resultados -->
+    <div class="card">
+      <div class="card-header">
+        <!-- Ícone verde -->
+        <div class="card-icon icon-green">📊</div>
+        <div class="card-text">
+          <h2 class="card-title">Ver Resultados</h2>
+          <p class="card-subtitle">Rankings e colocações</p>
+        </div>
+      </div>
+      <!-- Botão secundário (apenas borda) -->
+      <button class="btn btn-outline" onclick="verRankings()">
+        Ver Rankings
+      </button>
+    </div>
+
+    <!-- CARD 3: Como Funciona -->
+    <div class="card card-info">
+      <h2 class="info-title">💡 Como funciona?</h2>
+      <ul class="info-list">
+        <li>
+          <span class="emoji">📊</span>
+          <span><strong>Votação:</strong> Escolha semestre, sala e projeto para dar nota de 0 a 10</span>
+        </li>
+        <li>
+          <span class="emoji">🏠</span>
+          <span><strong>Salas:</strong> Cada semestre possui Sala A e Sala B separadas</span>
+        </li>
+        <li>
+          <span class="emoji">🚫</span>
+          <span><strong>Único voto:</strong> Só pode votar 1x em cada projeto</span>
+        </li>
+        <li>
+          <span class="emoji">🏆</span>
+          <span><strong>Resultados:</strong> Rankings separados por sala em cada semestre</span>
+        </li>
+      </ul>
+    </div>
+
+  </main>
+
+  <!-- ==============================
+       MODAL: VOTAÇÃO
+       Abre ao clicar em "Ir para Votação"
+  ============================== -->
+  <div class="modal-overlay" id="modalVotacao">
+    <div class="modal">
+      <h2>📋 Avaliar Projeto</h2>
+
+      <!-- Seleção de semestre -->
+      <div class="form-group">
+        <label>Semestre</label>
+        <select id="semestre">
+          <option>2024.1</option>
+          <option>2024.2</option>
+          <option selected>2025.1</option>
+        </select>
+      </div>
+
+      <!-- Seleção de sala -->
+      <div class="form-group">
+        <label>Sala</label>
+        <select id="sala">
+          <option>Sala A</option>
+          <option>Sala B</option>
+        </select>
+      </div>
+
+      <!-- Seleção de projeto -->
+      <div class="form-group">
+        <label>Projeto</label>
+        <select id="projeto">
+          <option>Projeto Alpha</option>
+          <option>Projeto Beta</option>
+          <option>Projeto Gamma</option>
+          <option>Projeto Delta</option>
+        </select>
+      </div>
+
+      <!-- Slider de nota -->
+      <div class="form-group">
+        <label>Nota: <strong id="notaValor">7</strong></label>
+        <input
+          type="range"
+          min="0" max="10" step="1" value="7"
+          oninput="document.getElementById('notaValor').textContent = this.value"
+        >
+      </div>
+
+      <!-- Botões do modal -->
+      <div class="modal-btns">
+        <button class="btn-cancel" onclick="fecharModal('modalVotacao')">Cancelar</button>
+        <button class="btn-confirm" onclick="confirmarVoto()">Confirmar Voto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================
+       MODAL: RANKINGS
+       Abre ao clicar em "Ver Rankings"
+  ============================== -->
+  <div class="modal-overlay" id="modalRankings">
+    <div class="modal">
+      <h2>📊 Rankings — 2025.1 · Sala A</h2>
+
+      <!-- Lista de ranking -->
+      <div class="ranking-item">
+        <span class="pos">1°</span>
+        <span class="nome">Projeto Alpha</span>
+        <span class="nota">9.4</span>
+      </div>
+      <div class="ranking-item">
+        <span class="pos">2°</span>
+        <span class="nome">Projeto Gamma</span>
+        <span class="nota">8.7</span>
+      </div>
+      <div class="ranking-item">
+        <span class="pos">3°</span>
+        <span class="nome">Projeto Beta</span>
+        <span class="nota">7.2</span>
+      </div>
+      <div class="ranking-item">
+        <span class="pos">4°</span>
+        <span class="nome">Projeto Delta</span>
+        <span class="nota">6.5</span>
+      </div>
+
+      <div class="modal-btns">
+        <button class="btn-confirm" style="flex:1" onclick="fecharModal('modalRankings')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link para o JavaScript da home -->
+  <script src="pag2.js"></script>
+
+</body>
+</html>
