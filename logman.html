@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>UniAvalia</title>
 
   <link rel="stylesheet" href="style.css">
@@ -14,7 +15,11 @@
   <div class="container">
 
     <div class="logo">
-      <img src="img/fotologo.png" alt="logo" width="150px">
+      <img
+        src="img/fotologo.png"
+        alt="logo"
+        width="150px"
+      >
     </div>
 
     <h1>UniAvalia</h1>
@@ -25,28 +30,49 @@
 
     <div class="card">
 
-      <h2 class="cor">Bem-vindo(a)</h2>
+      <h2 class="cor">
+        Bem-vindo(a)
+      </h2>
 
-      <p>Faça login para avaliar os projetos</p>
+      <p>
+        Faça login para avaliar os projetos
+      </p>
 
-      <h5 class="txtesq">Digite seu nome</h5>
+      <!-- NOME -->
+      <h5 class="txtesq">
+        Digite seu nome
+      </h5>
 
       <input
         class="input"
         type="text"
+        id="nome"
         placeholder="Digite seu nome"
       >
 
       <br><br>
 
-      <h5 class="txtesq">Digite seu email</h5>
-      
+      <!-- EMAIL -->
+      <h5 class="txtesq">
+        Digite seu email
+      </h5>
+
       <input
         class="input"
         type="email"
         id="email"
         placeholder="Digite seu email"
       >
+
+      <br><br>
+
+      <!-- BOTÃO LOGIN -->
+      <button
+        class="btn btn-google"
+        onclick="loginManual()"
+      >
+        Entrar
+      </button>
 
     </div>
 
@@ -56,5 +82,49 @@
 
   </div>
 
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function loginManual() {
+
+      // PEGA VALORES
+      const nome =
+        document.getElementById("nome").value;
+
+      const email =
+        document.getElementById("email").value;
+
+      // VERIFICA CAMPOS
+      if (
+        nome.trim() !== "" &&
+        email.trim() !== ""
+      ) {
+
+        // SALVA NOME
+        localStorage.setItem(
+          "nomeUsuario",
+          nome
+        );
+
+        // SALVA EMAIL
+        localStorage.setItem(
+          "emailUsuario",
+          email
+        );
+
+        // REDIRECIONA
+        window.location.href = "pag2.html";
+
+      } else {
+
+        alert("Preencha todos os campos ❌");
+
+      }
+
+    }
+
+  </script>
+
 </body>
+
 </html>

@@ -1,90 +1,74 @@
-// ============================================================
-// home.js — Lógica da tela principal (Home) do UniAvalia
-// Integrado com o sistema de login (index.html / script.js)
-// ============================================================
+const nome = localStorage.getItem("nomeUsuario");
 
+    if (nome) {
 
-// ============================================================
-// FUNÇÃO: LOGOUT
-// Remove a sessão e redireciona para o login
-// ============================================================
-function logout() {
-  const confirmar = confirm("Deseja realmente sair?");
-  if (confirmar) {
-    sessionStorage.removeItem("emailLogado");
-    window.location.href = "index.html";
-  }
-}
+      document
+        .getElementById("nomeUsuario")
+        .textContent = nome;
 
+    } else {
 
-// ============================================================
-// FUNÇÃO: IR PARA VOTAÇÃO
-// Abre o modal de votação
-// ============================================================
-function irParaVotacao() {
-  abrirModal("modalVotacao");
-}
+      document
+        .getElementById("nomeUsuario")
+        .textContent = "Usuário";
 
-
-// ============================================================
-// FUNÇÃO: VER RANKINGS
-// Abre o modal com o ranking de projetos
-// ============================================================
-function verRankings() {
-  abrirModal("modalRankings");
-}
-
-
-// ============================================================
-// FUNÇÃO: ABRIR MODAL
-// Recebe o ID do modal e o exibe na tela
-// ============================================================
-function abrirModal(id) {
-  document.getElementById(id).classList.add("active");
-}
-
-
-// ============================================================
-// FUNÇÃO: FECHAR MODAL
-// Recebe o ID do modal e o esconde
-// ============================================================
-function fecharModal(id) {
-  document.getElementById(id).classList.remove("active");
-}
-
-
-// ============================================================
-// FECHAR MODAL AO CLICAR FORA (no fundo escurecido)
-// ============================================================
-document.querySelectorAll(".modal-overlay").forEach(function (overlay) {
-  overlay.addEventListener("click", function (e) {
-    // Só fecha se clicou exatamente no fundo, não no conteúdo
-    if (e.target === overlay) {
-      overlay.classList.remove("active");
     }
-  });
-});
 
+    function logout() {
 
-// ============================================================
-// FUNÇÃO: CONFIRMAR VOTO
-// Lê os valores selecionados e registra o voto
-// ============================================================
-function confirmarVoto() {
-  const semestre = document.getElementById("semestre").value;
-  const sala     = document.getElementById("sala").value;
-  const projeto  = document.getElementById("projeto").value;
-  const nota     = document.getElementById("notaValor").textContent;
+      localStorage.removeItem("nomeUsuario");
 
-  // Exibe confirmação com os dados escolhidos
-  alert(
-    "✅ Voto registrado com sucesso!\n\n" +
-    "Semestre: " + semestre + "\n" +
-    "Sala: " + sala + "\n" +
-    "Projeto: " + projeto + "\n" +
-    "Nota: " + nota
-  );
+      window.location.href = "home.html";
 
-  // Fecha o modal após confirmar
-  fecharModal("modalVotacao");
-}
+    }
+
+    function irParaVotacao() {
+
+      document
+        .getElementById("modalVotacao")
+        .style.display = "flex";
+
+    }
+
+    function verRankings() {
+
+      document
+        .getElementById("modalRankings")
+        .style.display = "flex";
+
+    }
+
+    function fecharModal(id) {
+
+      document
+        .getElementById(id)
+        .style.display = "none";
+
+    }
+
+    function confirmarVoto() {
+
+      const semestre =
+        document.getElementById("semestre").value;
+
+      const sala =
+        document.getElementById("sala").value;
+
+      const projeto =
+        document.getElementById("projeto").value;
+
+      const nota =
+        document.getElementById("notaValor").textContent;
+
+      alert(
+        `Voto registrado! 🎉
+        
+        Projeto: ${projeto}
+        Nota: ${nota}
+        Sala: ${sala}
+        Semestre: ${semestre}`
+      );
+
+      fecharModal("modalVotacao");
+
+    }

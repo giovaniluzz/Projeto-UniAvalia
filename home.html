@@ -90,26 +90,17 @@
 
         console.log(user);
 
+        localStorage.setItem("nomeUsuario", user.displayName);
+
         alert("Login realizado com sucesso! 🎉");
+
+        window.location.href = "pag2.html";
 
       } catch (error) {
 
         console.error(error);
 
         alert("Erro no login ❌");
-      }
-
-    }
-
-    // LOGIN MANUAL
-    window.loginManual = function () {
-
-      const email = document.getElementById("email").value;
-
-      if (email.trim() !== "") {
-        alert("Login manual realizado! 🎉");
-      } else {
-        alert("Digite um email ❌");
       }
 
     }
