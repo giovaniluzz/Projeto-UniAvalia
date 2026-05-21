@@ -92,7 +92,10 @@
         console.log(user);
 
         alert("Login realizado com sucesso! 🎉");
-
+        
+        if (loginGoogle == true){
+          <button onclick="window.location.href='pag2html'">Login com Google</button>
+        }
       } catch (error) {
 
         console.error(error);
@@ -111,13 +114,14 @@
       if (email.trim() !== "") {
 
         alert("Login manual realizado! 🎉");
+        <button ></button>
 
       } else {
 
         alert("Digite um email ❌");
 
       }
-
+      
     }
 
   </script>

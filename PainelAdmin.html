@@ -1,0 +1,67 @@
+<!-- ===== FAZER ALTERAÇOES!!!!!!!!!! ===== -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+
+  <!-- ===== HEADER: barra azul escura no topo ===== -->
+  <header>
+    <button class="btn-voltar" onclick="voltarInicio()">← Voltar</button>
+    <span class="titulo-header">Painel Admin</span>
+    <button class="btn-fechar" onclick="fecharPainel()">✕</button>
+  </header>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main>
+
+    <!-- CARD DO PAINEL ADMIN -->
+    <div class="card card-admin">
+      <div class="card-header">
+        <div class="icone icone-roxo">🛡️</div>
+        <div>
+          <div class="card-titulo">Painel Admin</div>
+          <div class="card-subtitulo">Gerenciar sistema completo</div>
+        </div>
+      </div>
+      <button class="btn btn-admin" onclick="abrirPainel()">Acessar Painel</button>
+    </div>
+
+    <!-- CARD: COMO FUNCIONA -->
+    <div class="card">
+      <h2 class="secao-titulo">💡 Como funciona?</h2>
+
+      <div class="dica">📊 <span><strong>Votação:</strong> Escolha semestre, sala e projeto para dar nota de 0 a 10</span></div>
+      <div class="dica">🏫 <span><strong>Salas:</strong> Cada semestre possui Sala A e Sala B separadas</span></div>
+      <div class="dica">🚫 <span><strong>Único voto:</strong> Só pode votar 1x em cada projeto</span></div>
+      <div class="dica">👥 <span><strong>Resultados:</strong> Rankings separados por sala em cada semestre</span></div>
+      <div class="dica">⚙️ <span><strong>Admin:</strong> Você pode encerrar votações e cadastrar projetos</span></div>
+    </div>
+
+  </main>
+
+  <!-- MODAL: aparece ao clicar em "Acessar Painel" -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-box">
+      <h3>🛡️ Painel Administrativo</h3>
+      <p>Área restrita. Funcionalidades disponíveis:</p>
+
+      <ul>
+        <li>📋 Cadastrar projetos</li>
+        <li>🔒 Encerrar votações</li>
+        <li>📊 Ver todos os votos</li>
+        <li>🗑️ Remover projetos</li>
+      </ul>
+
+      <button class="btn btn-admin" onclick="fecharModal()">Fechar</button>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
