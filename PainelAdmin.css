@@ -1,105 +1,86 @@
-/* ================================================
-   VARIÁVEIS GLOBAIS
-   Mesmas cores do projeto principal para manter
-   visual consistente entre as páginas.
-================================================ */
-:root {
-  --cor-fundo-escuro: #0f1e2e;
-  --cor-card: #ffffff;
-  --cor-texto-titulo: #1a2a3a;
-  --cor-texto-sub: #6b7a8d;
-  --cor-admin: #a855f7;          /* roxo do admin */
-  --cor-fundo-pagina: #f0f4f8;
-}
-
-/* ================================================
-   RESET
-================================================ */
+/* ===========================
+   RESET BÁSICO
+   (mesmo padrão do login)
+=========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
+/* ===========================
+   FUNDO GERAL DA PÁGINA
+=========================== */
 body {
-  font-family: 'DM Sans', sans-serif;
-  background-color: var(--cor-fundo-pagina);
+  background: #123759;
   min-height: 100vh;
+  padding: 20px 16px;
 }
 
-/* ================================================
-   HEADER
-   Barra azul escura com botão voltar, título e X.
-================================================ */
-header {
-  background-color: var(--cor-fundo-escuro);
-  color: white;
-  padding: 14px 20px;
+/* ===========================
+   CABEÇALHO (HEADER)
+   Barra superior com nome
+   do professor e botão sair
+=========================== */
+.header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  color: #ffffff;
 }
 
-/* Título centralizado no header */
-.titulo-header {
-  font-family: 'Syne', sans-serif;
-  font-size: 15px;
+/* Nome e saudação */
+.header-title {
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
-/* Botão "← Voltar" */
-.btn-voltar {
-  background: #2d3f53;
+.header-subtitle {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+/* Botão de logout (sair) */
+.btn-logout {
+  background: none;
   border: none;
-  color: white;
-  padding: 7px 14px;
-  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1.3rem;
   cursor: pointer;
-  font-size: 13px;
-  font-family: 'DM Sans', sans-serif;
-  transition: background 0.2s;
+  opacity: 0.75;
+  padding: 4px;
 }
-.btn-voltar:hover { background: #4a5f75; }
 
-/* Botão X fechar */
-.btn-fechar {
-  background: #2d3f53;
-  border: none;
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
+.btn-logout:hover {
+  opacity: 1;
 }
-.btn-fechar:hover { background: #4a5f75; }
 
-/* ================================================
-   CONTAINER PRINCIPAL
-================================================ */
-main {
-  max-width: 760px;
-  margin: 24px auto;
-  padding: 0 16px;
+/* ===========================
+   ÁREA DE CONTEÚDO PRINCIPAL
+=========================== */
+.main {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-/* ================================================
-   CARDS
-================================================ */
+/* ===========================
+   CARD (caixa branca)
+   Usado nos 3 blocos da tela
+=========================== */
 .card {
-  background: var(--cor-card);
+  background: #ffffff;
   border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 20px;
 }
 
-/* Cabeçalho do card: ícone + títulos */
+/* Parte superior do card:
+   ícone + título + subtítulo */
 .card-header {
   display: flex;
   align-items: center;
@@ -107,145 +88,314 @@ main {
   margin-bottom: 20px;
 }
 
-/* ================================================
-   ÍCONE
-================================================ */
-.icone {
-  width: 48px;
-  height: 48px;
+/* Ícone redondo do card */
+.card-icon {
+  width: 46px;
+  height: 46px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 1.3rem;
   flex-shrink: 0;
 }
-.icone-roxo { background-color: var(--cor-admin); }
 
-.card-titulo {
-  font-family: 'Syne', sans-serif;
-  font-size: 17px;
-  color: var(--cor-texto-titulo);
+/* Ícone escuro (card Avaliar) */
+.icon-dark {
+  background-color: #123759;
 }
-.card-subtitulo {
-  font-size: 13px;
-  color: var(--cor-texto-sub);
+
+/* Ícone verde (card Resultados) */
+.icon-green {
+  background-color: #22c55e;
+}
+
+/* Título do card */
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #123759;
+}
+
+/* Subtítulo do card */
+.card-subtitle {
+  font-size: 0.8rem;
+  color: #6b7280;
   margin-top: 2px;
 }
 
-/* ================================================
-   CARD ADMIN
-   Fundo gradiente lilás claro.
-================================================ */
-.card-admin {
-  background: linear-gradient(135deg, #fdf4ff 0%, #f3e8ff 100%);
-}
-
-/* ================================================
-   BOTÕES
-================================================ */
+/* ===========================
+   BOTÕES DOS CARDS
+=========================== */
 .btn {
   width: 100%;
   padding: 14px;
   border-radius: 10px;
-  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+/* Botão preenchido (Ir para Votação) */
+.btn-primary {
+  background-color: #123759;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #0e2c47;
+}
+
+/* Botão com borda (Ver Rankings) */
+.btn-outline {
+  background: #ffffff;
+  color: #123759;
+  border: 2px solid #123759;
+}
+
+.btn-outline:hover {
+  background: #123759;
+  color: #ffffff;
+}
+
+.card-wrapper {
+  background: #0f1729;
+  border-radius: 16px;
+  padding: 16px;
+  font-family: sans-serif;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 20px 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f3f0ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box i {
+  font-size: 24px;
+  color: #7c3aed;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 2px;
+}
+
+.card-sub {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.btn-acessar {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #a020f0;
+  color: #fff;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.1s;
-  border: none;
-}
-.btn:hover  { opacity: 0.88; }
-.btn:active { transform: scale(0.98); }
-
-.btn-admin {
-  background-color: var(--cor-admin);
-  color: white;
+  letter-spacing: 0.01em;
+  transition: background 0.15s, transform 0.1s;
+  box-sizing: border-box;
 }
 
-/* ================================================
-   SEÇÃO COMO FUNCIONA
-================================================ */
-.secao-titulo {
-  font-family: 'Syne', sans-serif;
-  font-size: 16px;
-  color: var(--cor-texto-titulo);
+.btn-acessar:hover {
+  background: #8b10d8;
+}
+
+.btn-acessar:active {
+  transform: scale(0.98);
+  background: #7a0cc0;
+}
+/* ===========================
+   CARD "COMO FUNCIONA?"
+=========================== */
+.card-info {
+  padding: 20px 24px;
+}
+
+.info-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #123759;
   margin-bottom: 16px;
 }
 
-.dica {
+/* Lista de itens explicativos */
+.info-list {
+  list-style: none;
   display: flex;
+  flex-direction: column;
   gap: 10px;
-  margin-bottom: 10px;
-  font-size: 13.5px;
-  color: var(--cor-texto-sub);
-  line-height: 1.5;
 }
-.dica strong { color: var(--cor-texto-titulo); }
 
-/* ================================================
-   MODAL
-   Caixa que aparece sobre a tela ao clicar
-   em "Acessar Painel". Começa escondida (display:none).
-================================================ */
+.info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+.info-list li .emoji {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.info-list li strong {
+  color: #123759;
+}
+
+/* ===========================
+   FUNDO ESCURECIDO DO MODAL
+=========================== */
 .modal-overlay {
-  display: none;                        /* escondido por padrão */
-  position: fixed;                      /* fica fixo sobre tudo */
-  inset: 0;                             /* ocupa a tela toda */
-  background: rgba(0, 0, 0, 0.45);     /* fundo escurecido atrás */
+  display: none; /* oculto por padrão */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 100;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 16px;
 }
 
-/* Quando a classe "ativo" for adicionada via JS, aparece */
-.modal-overlay.ativo {
+/* Quando ativo, mostra o modal */
+.modal-overlay.active {
   display: flex;
 }
 
 /* Caixa branca do modal */
-.modal-box {
-  background: white;
+.modal {
+  background: #ffffff;
   border-radius: 16px;
-  padding: 32px;
-  max-width: 400px;
-  width: 90%;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  animation: entrar 0.25s ease;        /* pequena animação de entrada */
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
 }
 
-/* Animação: o modal "sobe" levemente ao aparecer */
-@keyframes entrar {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.modal-box h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 18px;
-  color: var(--cor-texto-titulo);
-  margin-bottom: 10px;
-}
-
-.modal-box p {
-  font-size: 14px;
-  color: var(--cor-texto-sub);
+.modal h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #123759;
   margin-bottom: 16px;
 }
 
-/* Lista de funcionalidades dentro do modal */
-.modal-box ul {
-  list-style: none;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* ===========================
+   GRUPOS DE FORMULÁRIO
+   (label + input/select)
+=========================== */
+.form-group {
+  margin-bottom: 14px;
 }
 
-.modal-box ul li {
-  font-size: 14px;
-  color: var(--cor-texto-titulo);
-  padding: 10px 14px;
-  background: #f8f0ff;
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-group select,
+.form-group input[type="range"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
   border-radius: 8px;
+  font-size: 0.9rem;
+  color: #123759;
+  background: #ffffff;
+}
+
+/* ===========================
+   BOTÕES DO MODAL
+=========================== */
+.modal-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.modal-btns button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+}
+
+/* Botão cancelar (cinza) */
+.btn-cancel {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Botão confirmar (azul escuro) */
+.btn-confirm {
+  background: #123759;
+  color: #ffffff;
+}
+
+/* ===========================
+   LISTA DE RANKING
+=========================== */
+.ranking-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.88rem;
+  color: #374151;
+}
+
+.ranking-item:last-of-type {
+  border-bottom: none;
+}
+
+/* Número da posição */
+.ranking-item .pos {
+  font-weight: 700;
+  color: #123759;
+  width: 28px;
+}
+
+/* Nome do projeto */
+.ranking-item .nome {
+  flex: 1;
+  padding: 0 10px;
+}
+
+/* Badge com a nota */
+.ranking-item .nota {
+  background: #123759;
+  color: #ffffff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
 }
