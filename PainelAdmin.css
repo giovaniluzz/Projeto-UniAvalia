@@ -193,10 +193,9 @@ body {
 }
 
 .card-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: #111;
-  margin: 0 0 2px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #123759;
 }
 
 .card-sub {
