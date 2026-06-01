@@ -57,10 +57,11 @@
     import {
       getAuth,
       GoogleAuthProvider,
-      signInWithPopup
+      signInWithPopup,
+      signInWithRedirect,
+      getRedirectResult
     } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
 
-    // CONFIG FIREBASE
     const firebaseConfig = {
       apiKey: "AIzaSyAIaLqJrLFDPPf2fjmlbMVDWR5aG8X3U9M",
       authDomain: "uniavalia-pi.firebaseapp.com",
@@ -71,16 +72,12 @@
       measurementId: "G-1WT4LRH3NC"
     };
 
-    // INICIALIZA FIREBASE
     const app = initializeApp(firebaseConfig);
 
-    // AUTENTICAÇÃO
     const auth = getAuth(app);
 
-    // LOGIN GOOGLE
     const provider = new GoogleAuthProvider();
 
-    // FUNÇÃO LOGIN GOOGLE
     window.loginGoogle = async function () {
 
       try {
@@ -89,41 +86,30 @@
 
         const user = result.user;
 
-        console.log(user);
+        console.log("Usuário logado:", user);
 
-        alert("Login realizado com sucesso! 🎉");
-        
-        if (loginGoogle == true){
-          <button onclick="window.location.href='pag2html'">Login com Google</button>
-        }
+        // Salva dados do usuário
+        localStorage.setItem(
+          "nomeUsuario",
+          user.displayName || "Usuário"
+        );
+
+        localStorage.setItem(
+          "emailUsuario",
+          user.email || ""
+        );
+
+        // Redireciona para a próxima página
+        window.location.href = "pag2.html";
+
       } catch (error) {
 
-        console.error(error);
+        console.error("Erro no login:", error);
 
-        alert("Erro no login ❌");
-
-      }
-
-    }
-
-    // LOGIN MANUAL
-    window.loginManual = function () {
-
-      const email = document.getElementById("email").value;
-
-      if (email.trim() !== "") {
-
-        alert("Login manual realizado! 🎉");
-        <button ></button>
-
-      } else {
-
-        alert("Digite um email ❌");
+        alert("Erro ao fazer login com Google.");
 
       }
-      
-    }
-
+    };
   </script>
 
 </body>
