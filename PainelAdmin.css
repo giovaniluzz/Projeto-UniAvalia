@@ -1,400 +1,167 @@
-/* ===========================
-   RESET BÁSICO
-   (mesmo padrão do login)
-=========================== */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
-/* ===========================
-   FUNDO GERAL DA PÁGINA
-=========================== */
 body {
-  background: #123759;
+  background-color: #1a3150;
+  font-family: 'Segoe UI', sans-serif;
   min-height: 100vh;
-  padding: 20px 16px;
+  padding: 24px 16px;
 }
 
-/* ===========================
-   CABEÇALHO (HEADER)
-   Barra superior com nome
-   do professor e botão sair
-=========================== */
-.header {
+/* ── Top bar ── */
+.topbar {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
   margin-bottom: 24px;
-  color: #ffffff;
 }
 
-/* Nome e saudação */
-.header-title {
-  font-size: 1.3rem;
-  font-weight: 700;
+.topbar svg {
+  width: 16px;
+  height: 16px;
+  stroke: rgba(255, 255, 255, 0.75);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.header-subtitle {
-  font-size: 0.85rem;
-  opacity: 0.75;
-  margin-top: 4px;
-}
-
-/* Botão de logout (sair) */
-.btn-logout {
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 1.3rem;
-  cursor: pointer;
-  opacity: 0.75;
-  padding: 4px;
-}
-
-.btn-logout:hover {
-  opacity: 1;
-}
-
-/* ===========================
-   ÁREA DE CONTEÚDO PRINCIPAL
-=========================== */
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* ===========================
-   CARD (caixa branca)
-   Usado nos 3 blocos da tela
-=========================== */
+/* ── Cards base ── */
 .card {
   background: #ffffff;
   border-radius: 16px;
-  padding: 20px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
 }
 
-/* Parte superior do card:
-   ícone + título + subtítulo */
 .card-header {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-/* Ícone redondo do card */
-.card-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  flex-shrink: 0;
-}
-
-/* Ícone escuro (card Avaliar) */
-.icon-dark {
-  background-color: #123759;
-}
-
-/* Ícone verde (card Resultados) */
-.icon-green {
-  background-color: #22c55e;
-}
-
-/* Título do card */
-.card-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #123759;
-}
-
-/* Subtítulo do card */
-.card-subtitle {
-  font-size: 0.8rem;
-  color: #6b7280;
-  margin-top: 2px;
-}
-
-/* ===========================
-   BOTÕES DOS CARDS
-=========================== */
-.btn {
-  width: 100%;
-  padding: 14px;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-}
-
-/* Botão preenchido (Ir para Votação) */
-.btn-primary {
-  background-color: #123759;
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  background-color: #0e2c47;
-}
-
-/* Botão com borda (Ver Rankings) */
-.btn-outline {
-  background: #ffffff;
-  color: #123759;
-  border: 2px solid #123759;
-}
-
-.btn-outline:hover {
-  background: #123759;
-  color: #ffffff;
-}
-
-.card-wrapper {
-  background: #0f1729;
-  border-radius: 16px;
-  padding: 16px;
-  font-family: sans-serif;
-}
-
-.card {
-  background: #fff;
+.icon-wrap {
+  width: 52px;
+  height: 52px;
   border-radius: 14px;
-  padding: 18px 20px 14px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: #f3f0ff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.icon-box i {
-  font-size: 24px;
-  color: #7c3aed;
+.icon-wrap svg {
+  width: 26px;
+  height: 26px;
+  stroke: #ffffff;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
+.icon-dark   { background: #1a3150; }
+.icon-green  { background: #22b573; }
+.icon-purple { background: #a020f0; }
+
 .card-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #123759;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 2px;
 }
 
 .card-sub {
   font-size: 13px;
-  color: #888;
-  margin: 0;
+  color: #888888;
 }
 
-.btn-acessar {
+/* ── Buttons ── */
+.btn {
   display: block;
   width: 100%;
-  padding: 14px;
   border: none;
-  border-radius: 10px;
-  background: #a020f0;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: background 0.15s, transform 0.1s;
-  box-sizing: border-box;
+  text-align: center;
+  transition: opacity 0.15s, transform 0.1s;
 }
 
-.btn-acessar:hover {
-  background: #8b10d8;
+.btn:hover  { opacity: 0.88; }
+.btn:active { transform: scale(0.98); }
+
+.btn-dark {
+  background: #1a3150;
+  color: #ffffff;
 }
 
-.btn-acessar:active {
-  transform: scale(0.98);
-  background: #7a0cc0;
+.btn-outline {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1.5px solid #1a3150;
 }
-/* ===========================
-   CARD "COMO FUNCIONA?"
-=========================== */
-.card-info {
+
+.btn-purple {
+  background: #a020f0;
+  color: #ffffff;
+}
+
+/* ── Admin card (fundo lilás) ── */
+.admin-card {
+  background: #f3eaff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+/* ── "Como funciona?" ── */
+.how-card {
+  background: #ffffff;
+  border-radius: 16px;
   padding: 20px 24px;
 }
 
-.info-title {
-  font-size: 1rem;
+.how-title {
+  font-size: 17px;
   font-weight: 700;
-  color: #123759;
+  color: #1a1a1a;
   margin-bottom: 16px;
-}
-
-/* Lista de itens explicativos */
-.info-list {
-  list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
 }
 
-.info-list li {
+.how-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 0.85rem;
-  color: #374151;
-}
-
-.info-list li .emoji {
-  font-size: 1rem;
-  flex-shrink: 0;
-}
-
-.info-list li strong {
-  color: #123759;
-}
-
-/* ===========================
-   FUNDO ESCURECIDO DO MODAL
-=========================== */
-.modal-overlay {
-  display: none; /* oculto por padrão */
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 100;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-}
-
-/* Quando ativo, mostra o modal */
-.modal-overlay.active {
-  display: flex;
-}
-
-/* Caixa branca do modal */
-.modal {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  width: 100%;
-  max-width: 420px;
-}
-
-.modal h2 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #123759;
-  margin-bottom: 16px;
-}
-
-/* ===========================
-   GRUPOS DE FORMULÁRIO
-   (label + input/select)
-=========================== */
-.form-group {
+  gap: 12px;
   margin-bottom: 14px;
 }
 
-.form-group label {
-  display: block;
-  font-size: 0.82rem;
+.how-item:last-child { margin-bottom: 0; }
+
+.how-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.how-text {
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.how-text strong {
   font-weight: 600;
-  color: #374151;
-  margin-bottom: 6px;
-}
-
-.form-group select,
-.form-group input[type="range"] {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  color: #123759;
-  background: #ffffff;
-}
-
-/* ===========================
-   BOTÕES DO MODAL
-=========================== */
-.modal-btns {
-  display: flex;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.modal-btns button {
-  flex: 1;
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border: none;
-}
-
-/* Botão cancelar (cinza) */
-.btn-cancel {
-  background: #f3f4f6;
-  color: #374151;
-}
-
-/* Botão confirmar (azul escuro) */
-.btn-confirm {
-  background: #123759;
-  color: #ffffff;
-}
-
-/* ===========================
-   LISTA DE RANKING
-=========================== */
-.ranking-item {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #f3f4f6;
-  font-size: 0.88rem;
-  color: #374151;
-}
-
-.ranking-item:last-of-type {
-  border-bottom: none;
-}
-
-/* Número da posição */
-.ranking-item .pos {
-  font-weight: 700;
-  color: #123759;
-  width: 28px;
-}
-
-/* Nome do projeto */
-.ranking-item .nome {
-  flex: 1;
-  padding: 0 10px;
-}
-
-/* Badge com a nota */
-.ranking-item .nota {
-  background: #123759;
-  color: #ffffff;
-  padding: 3px 12px;
-  border-radius: 20px;
-  font-size: 0.82rem;
-  font-weight: 700;
+  color: #1a1a1a;
 }
