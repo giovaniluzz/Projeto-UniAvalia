@@ -38,7 +38,6 @@
         Faça login para avaliar os projetos
       </p>
 
-      <!-- NOME -->
       <h5 class="txtesq">
         Digite seu nome
       </h5>
@@ -52,7 +51,6 @@
 
       <br><br>
 
-      <!-- EMAIL -->
       <h5 class="txtesq">
         Digite seu email
       </h5>
@@ -66,7 +64,6 @@
 
       <br><br>
 
-      <!-- BOTÃO LOGIN -->
       <button
         class="btn btn-google"
         onclick="loginManual()"
@@ -82,48 +79,30 @@
 
   </div>
 
-  <!-- JAVASCRIPT -->
   <script>
 
     function loginManual() {
 
-      // PEGA VALORES
-      const nome =
-        document.getElementById("nome").value;
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
 
-      const email =
-        document.getElementById("email").value;
+      if (nome === "" || email === "") {
+        alert("Preencha todos os campos!");
+        return;
+      }
 
-      // VERIFICA CAMPOS
-      if (
-        nome.trim() !== "" &&
-        email.trim() !== ""
-      ) {
+      localStorage.setItem("nomeUsuario", nome);
+      localStorage.setItem("emailUsuario", email);
 
-        // SALVA NOME
-        localStorage.setItem(
-          "nomeUsuario",
-          nome
-        );
-
-        // SALVA EMAIL
-        localStorage.setItem(
-          "emailUsuario",
-          email
-        );
-
-        // REDIRECIONA
-        window.location.href = "pag2.html";
-
+      if (email === "admin@unipam.com") {
+        window.location.href = "PainelAdmin.html";
       } else {
-
-        alert("Preencha todos os campos ❌");
-
+        window.location.href = "pag2.html";
       }
 
     }
 
-  </script>
+</script>
 
 </body>
 
