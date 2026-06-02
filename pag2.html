@@ -15,11 +15,11 @@
     <div class="header-info">
 
       <h1 class="header-title">
-        Olá, Avaliador(a)! 👋
+        Olá, Avaliador(a)!
       </h1>
 
       <p class="header-subtitle">
-        👤 <span id="nomeUsuario"></span>
+        <span id="nomeUsuario"></span>
       </p>
 
     </div>
@@ -34,266 +34,61 @@
 
   </header>
 
-  <main class="main">
+   <div class="card">
+    <div class="card-header">
+      <div class="icon-wrap icon-dark">
+        <svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h6"/></svg>
+      </div>
+      <div>
+        <p class="card-title">Avaliar Projetos</p>
+        <p class="card-sub">Vote nos projetos (0 a 10)</p>
+      </div>
+    </div>
+    <button class="btn btn-dark" onclick="irParaVotacao()">Ir para Votação</button>
+  </div>
+
 
     <div class="card">
-
-      <div class="card-header">
-
-        <div class="card-icon icon-dark">
-          📋
-        </div>
-
-        <div class="card-text">
-
-          <h2 class="card-title">
-            Avaliar Projetos
-          </h2>
-
-          <p class="card-subtitle">
-            Vote nos projetos (0 a 10)
-          </p>
-
-        </div>
-
+    <div class="card-header">
+      <div class="icon-wrap icon-green">
+        <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
       </div>
-
-      <button
-        class="btn btn-primary"
-        onclick="irParaVotacao()"
-      >
-        Ir para Votação
-      </button>
-
-    </div>
-
-    <div class="card">
-
-      <div class="card-header">
-
-        <div class="card-icon icon-green">
-          📊
-        </div>
-
-        <div class="card-text">
-
-          <h2 class="card-title">
-            Ver Resultados
-          </h2>
-
-          <p class="card-subtitle">
-            Rankings e colocações
-          </p>
-
-        </div>
-
+      <div>
+        <p class="card-title">Ver Resultados</p>
+        <p class="card-sub">Rankings e colocações</p>
       </div>
+    </div>
+    <button class="btn btn-outline" onclick="verRankings()">Ver Rankings</button>
+  </div>
 
-      <button
-        class="btn btn-outline"
-        onclick="verRankings()"
-      >
-        Ver Rankings
-      </button>
+     <div class="how-card">
+    <p class="how-title">💡 Como funciona?</p>
 
+    <div class="how-item">
+      <span class="how-icon">📊</span>
+      <p class="how-text"><strong>Votação:</strong> Escolha semestre, sala e projeto para dar nota de 0 a 10</p>
     </div>
 
-    <div class="card card-info">
-
-      <h2 class="info-title">
-        💡 Como funciona?
-      </h2>
-
-      <ul class="info-list">
-
-        <li>
-          <span class="emoji">📊</span>
-
-          <span>
-            <strong>Votação:</strong>
-            Escolha semestre, sala e projeto
-            para dar nota de 0 a 10
-          </span>
-        </li>
-
-        <li>
-          <span class="emoji">🏠</span>
-
-          <span>
-            <strong>Salas:</strong>
-            Cada semestre possui Sala A e Sala B
-            separadas
-          </span>
-        </li>
-
-        <li>
-          <span class="emoji">🚫</span>
-
-          <span>
-            <strong>Único voto:</strong>
-            Só pode votar 1x em cada projeto
-          </span>
-        </li>
-
-        <li>
-          <span class="emoji">🏆</span>
-
-          <span>
-            <strong>Resultados:</strong>
-            Rankings separados por sala
-            em cada semestre
-          </span>
-        </li>
-
-      </ul>
-
+    <div class="how-item">
+      <span class="how-icon">🏠</span>
+      <p class="how-text"><strong>Salas:</strong> Cada semestre possui Sala A e Sala B separadas</p>
     </div>
+
+    <div class="how-item">
+      <span class="how-icon">🚫</span>
+      <p class="how-text"><strong>Único voto:</strong> Só pode votar 1x em cada projeto</p>
+    </div>
+
+    <div class="how-item">
+      <span class="how-icon">🏆</span>
+      <p class="how-text"><strong>Resultados:</strong> Rankings separados por sala em cada semestre</p>
+    </div>
+  </div>
 
   </main>
 
-  <div
-    class="modal-overlay"
-    id="modalVotacao"
-    style="display:none;"
-  >
-
-    <div class="modal">
-
-      <h2>📋 Avaliar Projeto</h2>
-
-      <div class="form-group">
-
-        <label>Semestre</label>
-
-        <select id="semestre">
-          <option>2024.1</option>
-          <option>2024.2</option>
-          <option selected>2025.1</option>
-        </select>
-
-      </div>
-
-      <div class="form-group">
-
-        <label>Sala</label>
-
-        <select id="sala">
-          <option>Sala A</option>
-          <option>Sala B</option>
-        </select>
-
-      </div>
-
-      <div class="form-group">
-
-        <label>Projeto</label>
-
-        <select id="projeto">
-          <option>Projeto Alpha</option>
-          <option>Projeto Beta</option>
-          <option>Projeto Gamma</option>
-          <option>Projeto Delta</option>
-        </select>
-
-      </div>
-
-      <div class="form-group">
-
-        <label>
-          Nota:
-          <strong id="notaValor">7</strong>
-        </label>
-
-        <input
-          type="range"
-          min="0"
-          max="10"
-          step="1"
-          value="7"
-
-          oninput="
-            document.getElementById('notaValor')
-            .textContent = this.value
-          "
-        >
-
-      </div>
-
-      <div class="modal-btns">
-
-        <button
-          class="btn-cancel"
-          onclick="fecharModal('modalVotacao')"
-        >
-          Cancelar
-        </button>
-
-        <button
-          class="btn-confirm"
-          onclick="confirmarVoto()"
-        >
-          Confirmar Voto
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div
-    class="modal-overlay"
-    id="modalRankings"
-    style="display:none;"
-  >
-
-    <div class="modal">
-
-      <h2>
-        📊 Rankings — 2025.1 · Sala A
-      </h2>
-
-      <div class="ranking-item">
-        <span class="pos">1°</span>
-        <span class="nome">Projeto Alpha</span>
-        <span class="nota">9.4</span>
-      </div>
-
-      <div class="ranking-item">
-        <span class="pos">2°</span>
-        <span class="nome">Projeto Gamma</span>
-        <span class="nota">8.7</span>
-      </div>
-
-      <div class="ranking-item">
-        <span class="pos">3°</span>
-        <span class="nome">Projeto Beta</span>
-        <span class="nota">7.2</span>
-      </div>
-
-      <div class="ranking-item">
-        <span class="pos">4°</span>
-        <span class="nome">Projeto Delta</span>
-        <span class="nota">6.5</span>
-      </div>
-
-      <div class="modal-btns">
-
-        <button
-          class="btn-confirm"
-          style="flex:1"
-          onclick="fecharModal('modalRankings')"
-        >
-          Fechar
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
   
-  <script src="pag2.js"></script>
+ <script src="pag2.js"></script>
 
 </body>
 

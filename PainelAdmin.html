@@ -8,11 +8,28 @@
 </head>
 <body>
 
-  <div class="topbar">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-    <span id="nomeUsuarioTitulo"></span>
-  </div>
-  
+  <header class="header">
+
+    <div class="header-info">
+
+      <h1 class="header-title">
+        Olá, Administrador(a)! 
+      </h1>
+
+      <p class="header-subtitle">
+        <span id="nomeUsuario"></span>
+      </p>
+    </div>
+    
+     <button
+      class="btn-logout"
+      onclick="logout()"
+      title="Sair"
+    >
+      ↪
+    </button>
+  </header>
+
   <!-- Card: Avaliar Projetos -->
   <div class="card">
     <div class="card-header">
