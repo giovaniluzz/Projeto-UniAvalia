@@ -9,13 +9,10 @@
 <body>
 
   <header class="header">
-
     <div class="header-info">
-
       <h1 class="header-title">
         Olá, Administrador(a)! 
       </h1>
-
       <p class="header-subtitle">
         <span id="nomeUsuarioTitulo"></span>
       </p>
@@ -98,6 +95,7 @@
   </div>
 
   <script src="PainelAdmin.js"></script>
+
   <script>
 
     const nome = localStorage.getItem("nomeUsuario");
@@ -106,7 +104,16 @@
       document.getElementById("nomeUsuarioTitulo").textContent = nome;
     }
 
-</script>
+    function logout() {
+
+      localStorage.removeItem("nomeUsuario");
+      localStorage.removeItem("emailUsuario");
+
+      window.location.href = "home.html";
+
+    }
+    
+  </script>
 
 </body>
 </html>

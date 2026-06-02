@@ -49,7 +49,6 @@
 
   </div>
 
-  <!-- FIREBASE -->
   <script type="module">
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
@@ -88,7 +87,6 @@
 
         console.log("Usuário logado:", user);
 
-        // Salva dados do usuário
         localStorage.setItem(
           "nomeUsuario",
           user.displayName || "Usuário"
@@ -99,7 +97,6 @@
           user.email || ""
         );
 
-        // Redireciona para a próxima página
         window.location.href = "pag2.html";
 
       } catch (error) {
