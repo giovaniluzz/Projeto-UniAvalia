@@ -1,0 +1,177 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f6f8;
+    color:#16395d;
+}
+
+/* TOPO */
+
+.topo{
+    background:#12395f;
+    color:white;
+    padding:20px 30px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.topo h1{
+    font-size:30px;
+}
+
+.topo p{
+    margin-top:5px;
+    font-size:14px;
+    opacity:.8;
+}
+
+.voltar{
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1200px;
+    margin:30px auto;
+    padding:0 20px;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+    margin-bottom:8px;
+}
+
+.subtitulo{
+    color:#64809b;
+    margin-bottom:30px;
+}
+
+.campo{
+    margin-bottom:20px;
+}
+
+.campo label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.campo select{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#edf2f7;
+    border-radius:12px;
+    font-size:16px;
+}
+
+.btn-votar{
+    width:100%;
+    margin-top:10px;
+    border:none;
+    padding:18px;
+    background:#8ca0b4;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.campo input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #edf2f7;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.btn-votar:hover{
+    background:#6f879d;
+}
+
+/* PROJETOS */
+
+.projetos{
+    margin-top:40px;
+}
+
+.projetos h2{
+    margin-bottom:5px;
+}
+
+.projetos p{
+    color:#64809b;
+}
+
+.projeto{
+    background:white;
+    border:1px solid #d7dee8;
+    border-radius:16px;
+    padding:20px;
+    margin-top:15px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.projeto h3{
+    margin-bottom:5px;
+}
+
+.projeto span{
+    color:#555;
+}
+
+.status-area{
+    text-align:right;
+}
+
+.status{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.votado{
+    background:#15b34b;
+    color:white;
+}
+
+.pendente{
+    background:#e7eef5;
+    color:#16395d;
+}
+
+.nota{
+    margin-top:10px;
+    color:#14a83d !important;
+    font-weight:bold;
+}
+
+.status-area small{
+    display:block;
+    color:#666;
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar Projetos</title>
+    <link rel="stylesheet" href="pagVotar.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="voltar">←</div>
+
+        <div>
+            <h1>Avaliar Projetos</h1>
+            <p>Notas de 0 a 10</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- FORMULÁRIO -->
+        <section class="card">
+            <h2>Registrar Voto</h2>
+            <p class="subtitulo">Selecione semestre e projeto</p>
+
+  <div class="campo">
+    <label>Semestre</label>
+    <select id="semestre">
+        <option value="">Selecione o semestre</option>
+        <option value="1">1º Semestre</option>
+        <option value="2">2º Semestre</option>
+        <option value="3">3º Semestre</option>
+        <option value="4">4º Semestre</option>
+    </select>
+</div>
+
+<div class="campo">
+    <label>Turma</label>
+    <select id="sala">
+        <option value="">Selecione a turma</option>
+        <option value="A">Turma A</option>
+        <option value="B">Turma B</option>
+    </select>
+</div>
+
+<div class="campo">
+    <label>Projeto</label>
+    <select id="projeto" disabled>
+        <option>Primeiro escolha uma turma</option>
+    </select>
+</div>
+
+<div class="campo">
+    <label>Nota (0 a 10)</label>
+    <input
+        type="number"
+        id="nota"
+        min="0"
+        max="10"
+        step="0.1"
+        placeholder="Digite uma nota de 0 a 10">
+</div>
+
+<button id="btnVotar" class="btn-votar">
+    Confirmar Voto
+</button>
+</section>
+</section>
+
+        <!-- LISTA DE PROJETOS -->
+<section class="projetos">
+    <h2>Projetos do Semestre</h2>
+    <p>Status das avaliações</p>
+
+    <div class="projeto" data-projeto="Mesa 01 - Grupo A - Pedagogia">
+        <div>
+            <h3>Mesa 01 - Grupo A</h3>
+            <span>Pedagogia</span>
+        </div>
+
+        <div class="status-area">
+            <span class="status pendente">
+                ○ Pendente
+            </span>
+
+            <small>0 votos</small>
+        </div>
+    </div>
+
+    <div class="projeto" data-projeto="Mesa 02 - Grupo B - Administração">
+        <div>
+            <h3>Mesa 02 - Grupo B</h3>
+            <span>Administração</span>
+        </div>
+
+        <div class="status-area">
+            <span class="status pendente">
+                ○ Pendente
+            </span>
+
+            <small>0 votos</small>
+        </div>
+    </div>
+
+    <div class="projeto" data-projeto="Mesa 03 - Grupo C - Psicologia">
+        <div>
+            <h3>Mesa 03 - Grupo C</h3>
+            <span>Psicologia</span>
+        </div>
+
+        <div class="status-area">
+            <span class="status pendente">
+                ○ Pendente
+            </span>
+
+            <small>0 votos</small>
+        </div>
+    </div>
+
+    <div class="projeto" data-projeto="Mesa 04 - Grupo D - Direito">
+        <div>
+            <h3>Mesa 04 - Grupo D</h3>
+            <span>Direito</span>
+        </div>
+
+        <div class="status-area">
+            <span class="status pendente">
+                ○ Pendente
+            </span>
+
+            <small>0 votos</small>
+        </div>
+    </div>
+
+</section>
+    </main>
+    <script src="pagVotar.js"></script>
+</body>
+</html>
