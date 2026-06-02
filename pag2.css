@@ -131,7 +131,11 @@ body {
   transition: opacity 0.15s, transform 0.1s;
 }
 
-.btn:hover  { opacity: 0.88; }
+.btn-outline:hover  { 
+  background-color: #1a3150;
+  color: #ffffff;
+ }
+ 
 .btn:active { transform: scale(0.98); }
 
 .btn-dark {
