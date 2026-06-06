@@ -120,3 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+function logout() {
+
+      localStorage.removeItem("nomeUsuario");
+
+      window.location.href="pag2.html"
+
+}

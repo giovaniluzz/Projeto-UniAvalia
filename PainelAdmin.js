@@ -12,3 +12,4 @@ function acessarPainel() {
   // Navegue para o painel administrativo
   alert('Acessar Painel Admin');
 }
+
