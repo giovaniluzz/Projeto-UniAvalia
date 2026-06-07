@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Admin</title>
+
+    <link rel="stylesheet" href="adm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="header">
+    <div class="header-info">
+        <div>
+            <h2>Painel Admin</h2>
+            <span>Gerenciar sistema</span>
+        </div>
+
+        <button class="btn-logout" onclick="logout()" title="Sair">
+            ↪
+        </button>
+    </div>
+</div>
+
+<div class="container">
+
+    <button class="btn-encerrar">
+        <i class="fas fa-eye-slash"></i>
+        Encerrar Votação
+    </button>
+
+    <div class="status-box">
+        <h4>Status:</h4>
+
+        <div class="status">
+            <span class="bolinha"></span>
+            Votação Aberta
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button id="btnEmails" class="active" onclick="mostrarAba('emails')">
+            Emails
+        </button>
+
+        <button id="btnSemestres" onclick="mostrarAba('semestres')">
+            Semestres
+        </button>
+
+        <button id="btnProjetos" onclick="mostrarAba('projetos')">
+            Projetos
+        </button>
+    </div>
+
+    <!-- EMAILS -->
+    <div id="emails">
+
+        <div class="card">
+
+            <h3>Adicionar Email</h3>
+
+            <label>Nome Completo</label>
+            <input id="nomeEmail" type="text" placeholder="Prof. João Silva">
+
+            <label>Email</label>
+            <input id="emailEmail" type="email" placeholder="joao@faculdade.edu">
+
+            <label>Permissão de Administrador?</label>
+            <select>
+                <option>Não</option>
+                <option>Sim</option>
+            </select>
+
+            <button class="btn-adicionar" onclick="adicionarEmail()">
+                <i class="fas fa-plus"></i>
+                Adicionar
+            </button>
+
+        </div>
+
+        <div class="lista">
+
+            <h4>Cadastrados</h4>
+
+            <div id="listaEmails">
+
+                <div class="usuario">
+                    <div class="dados">
+                        <div>
+                            <strong>Administrador</strong>
+                            <span class="tag-admin">Admin</span>
+                            <p>admin@unipam.com</p>
+                        </div>
+                    </div>
+
+                    <i class="fas fa-trash" onclick="this.parentElement.remove()"></i>
+                </div>
+
+                <div class="usuario">
+                    <div class="dados">
+                        <div>
+                            <strong>Prof. João Silva</strong>
+                            <p>professor1@faculdade.edu</p>
+                        </div>
+                    </div>
+
+                    <i class="fas fa-trash" onclick="this.parentElement.remove()"></i>
+                </div>
+
+                <div class="usuario">
+                    <div class="dados">
+                        <div>
+                            <strong>Profa. Maria Santos</strong>
+                            <p>professor2@faculdade.edu</p>
+                        </div>
+                    </div>
+
+                    <i class="fas fa-trash" onclick="this.parentElement.remove()"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SEMESTRES -->
+    <div id="semestres" style="display:none;">
+
+        <div class="card">
+
+            <h3>Adicionar Semestre</h3>
+
+            <label>Nome do Semestre</label>
+            <input id="nomeSemestre" type="text" placeholder="Ex: 5º Semestre">
+
+            <button class="btn-adicionar" onclick="adicionarSemestre()">
+                <i class="fas fa-plus"></i>
+                Adicionar
+            </button>
+
+        </div>
+
+        <div class="lista">
+
+            <h4>Cadastrados</h4>
+
+            <div class="grid-semestres" id="listaSemestres">
+
+                <div class="semestre-card">
+                    <div>
+                        <strong>1º Semestre</strong>
+                        <span class="tag">Ativo</span>
+                    </div>
+
+                    <i class="fas fa-trash" onclick="this.parentElement.remove()"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PROJETOS -->
+    <div id="projetos" style="display:none;">
+
+        <div class="card">
+
+            <h3>Adicionar Projeto</h3>
+
+            <label>Nome do Projeto</label>
+            <input id="nomeProjeto" type="text" placeholder="Sistema de Votação">
+
+            <label>Curso</label>
+            <input id="cursoProjeto" type="text" placeholder="Ex: Sistemas de Informação">
+
+            <label>Semestre</label>
+            <select id="semestreProjeto">
+                <option>1º Semestre</option>
+                <option>2º Semestre</option>
+                <option>3º Semestre</option>
+                <option>4º Semestre</option>
+                <option>5º Semestre</option>
+                <option>6º Semestre</option>
+                <option>7º Semestre</option>
+                <option>8º Semestre</option>
+            </select>
+
+            <label>Número da Mesa</label>
+            <input id="mesaProjeto" type="number" placeholder="Ex: 12">
+
+            <label>Turma</label>
+            <select id="turmaProjeto">
+                <option>A</option>
+                <option>B</option>
+            </select>
+
+            <button class="btn-adicionar" onclick="adicionarProjeto()">
+                <i class="fas fa-plus"></i>
+                Adicionar
+            </button>
+
+        </div>
+
+        <div class="lista">
+
+            <h4>Projetos Cadastrados</h4>
+
+            <div id="listaProjetos">
+
+                <div class="usuario">
+                    <div class="dados">
+                        <div>
+                            <strong>Sistema de Votação</strong>
+                            <p>Curso: Sistemas de Informação</p>
+                            <p>Semestre: 4º Semestre</p>
+                            <p>Mesa: 12</p>
+                            <p>Turma: A</p>
+                        </div>
+                    </div>
+
+                    <i class="fas fa-trash" onclick="this.parentElement.remove()"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="adm.js"></script>
+
+</body>
+</html>

@@ -38,7 +38,7 @@
         <p class="card-sub">Vote nos projetos (0 a 10)</p>
       </div>
     </div>
-    <button class="btn btn-dark">Ir para Votação</button>
+    <button class="btn btn-dark" onclick="window.location.href='pagVotar.html'">Ir para Votação</button>
   </div>
 
   <!-- Card: Ver Resultados -->
@@ -66,7 +66,7 @@
         <p class="card-sub">Gerenciar sistema completo</p>
       </div>
     </div>
-    <button class="btn btn-purple">Acessar Painel</button>
+    <button class="btn btn-purple" onclick="window.location.href='adm.html'">Acessar Painel</button>
   </div>
 
   <!-- Como funciona -->
@@ -94,26 +94,6 @@
     </div>
   </div>
 
-  <script src="PainelAdmin.js"></script>
-
-  <script>
-
-    const nome = localStorage.getItem("nomeUsuario");
-
-    if (nome) {
-      document.getElementById("nomeUsuarioTitulo").textContent = nome;
-    }
-
-    function logout() {
-
-      localStorage.removeItem("nomeUsuario");
-      localStorage.removeItem("emailUsuario");
-
-      window.location.href = "home.html";
-
-    }
-    
-  </script>
-  <script src="script.js"></script>
+<script src="PainelAdmin.js"></script>
 </body>
 </html>
