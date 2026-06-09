@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resultados</title>
+  <link rel="stylesheet" href="pagRan.css" />
+</head>
+ 
+<body>
+ 
+  <!-- ══════════════════════════════
+       CABEÇALHO azul escuro no topo
+  ══════════════════════════════ -->
+  <header>
+    <button class="btn-back" onclick="history.back()" title="Voltar">&#8592;</button>
+    <div class="header-text">
+      <h1>Resultados</h1>
+      <p>Rankings por semestre</p>
+    </div>
+  </header>
+ 
+  <!-- ══════════════════════════════
+       ABAS DE SEMESTRE
+       Botões que filtram o conteúdo
+  ══════════════════════════════ -->
+  <nav class="abas-semestre">
+    <button class="aba ativa" onclick="trocarSemestre(1, this)">1º Semestre</button>
+    <button class="aba"       onclick="trocarSemestre(2, this)">2º Semestre</button>
+    <button class="aba"       onclick="trocarSemestre(3, this)">3º Semestre</button>
+    <button class="aba"       onclick="trocarSemestre(4, this)">4º Semestre</button>
+  </nav>
+ 
+  <!-- ══════════════════════════════
+       CONTEÚDO DINÂMICO
+       Preenchido pelo JavaScript
+  ══════════════════════════════ -->
+  <main id="conteudo">
+    <!-- As salas e projetos são gerados aqui via JS -->
+  </main>
+ 
+  <script src="pagRan.js"></script>
+</body>
+</html>

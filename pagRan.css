@@ -1,0 +1,229 @@
+/* ════════════════════════════════════════════
+   RESET BÁSICO
+   Remove margens e paddings padrão do browser
+════════════════════════════════════════════ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  color: #1e2d3d;
+}
+
+
+/* ════════════════════════════════════════════
+   CABEÇALHO
+   Barra azul escura com linha dourada na base
+════════════════════════════════════════════ */
+header {
+  background: #1a2c42;
+  color: #fff;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 3px solid #c9a84c;   /* linha dourada decorativa */
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.header-text h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.header-text p {
+  font-size: 13px;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+
+/* ════════════════════════════════════════════
+   ABAS DE SEMESTRE
+   Linha horizontal de botões logo abaixo do header
+════════════════════════════════════════════ */
+.abas-semestre {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e2e6ea;
+}
+
+/* Estilo base de cada aba */
+.aba {
+  padding: 8px 18px;
+  border: 1.5px solid #c8d0db;
+  border-radius: 20px;               /* bordas bem arredondadas (pill) */
+  background: #fff;
+  color: #1e2d3d;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.aba:hover {
+  border-color: #4a6fa5;
+  color: #4a6fa5;
+}
+
+/* Aba selecionada: fundo azul escuro + texto branco */
+.aba.ativa {
+  background: #1a2c42;
+  color: #fff;
+  border-color: #1a2c42;
+}
+
+
+/* ════════════════════════════════════════════
+   ÁREA PRINCIPAL
+   Centraliza e limita largura do conteúdo
+════════════════════════════════════════════ */
+main {
+  max-width: 1800px;
+  margin: 28px auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;                          /* espaço entre cada bloco de sala */
+}
+
+
+/* ════════════════════════════════════════════
+   TÍTULO DA SALA
+   Ex.: "Sala A" com borda lateral azul
+════════════════════════════════════════════ */
+.sala-titulo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e2d3d;
+  border-left: 4px solid #4a6fa5;
+  padding-left: 12px;
+  margin-bottom: 12px;
+}
+
+
+/* ════════════════════════════════════════════
+   CARD DO PÓDIO
+   Fundo colorido que envolve os projetos da sala:
+     Sala A → amarelo claro
+     Sala B → azul claro
+     demais → cinza claro
+════════════════════════════════════════════ */
+.card-podio {
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-podio.cor-ouro   { background: #fdfbe6; }   /* amarelo suave (Sala A) */
+.card-podio.cor-azul   { background: #dce8f5; }   /* azul suave   (Sala B) */
+.card-podio.cor-cinza  { background: #eef0f3; }   /* cinza neutro (demais) */
+
+
+/* ════════════════════════════════════════════
+   CABEÇALHO DO PÓDIO
+   Linha com ícone + texto "Pódio - Sala X"
+════════════════════════════════════════════ */
+.podio-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e2d3d;
+}
+
+.icone-podio-header {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Cor do ícone varia por sala */
+.cor-ouro  .icone-podio-header { color: #e6a817; }  /* dourado */
+.cor-azul  .icone-podio-header { color: #4a6fa5; }  /* azul    */
+.cor-cinza .icone-podio-header { color: #6b7a8d; }  /* cinza   */
+
+
+/* ════════════════════════════════════════════
+   CARD DE PROJETO INDIVIDUAL
+   Card branco com sombra dentro do pódio
+════════════════════════════════════════════ */
+.card-projeto {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+/* Linha superior: medalha + nome + curso */
+.projeto-topo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8ecf0;
+}
+
+.icone-medalha {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.projeto-nome {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e2d3d;
+}
+
+.projeto-curso {
+  font-size: 13px;
+  color: #6b7a8d;
+  margin-top: 2px;
+}
+
+/* Linha inferior: pontos (esq.) e média/votos (dir.) */
+.projeto-rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 12px;
+}
+
+.pontos-valor {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e2d3d;
+}
+
+.pontos-label {
+  font-size: 12px;
+  color: #6b7a8d;
+  margin-top: 2px;
+}
+
+.projeto-stats {
+  text-align: right;
+}
+
+.stats-media,
+.stats-votos {
+  font-size: 13px;
+  color: #6b7a8d;
+}
